@@ -3,80 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Statistics</title>
+    <title>Player</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #202020; /* Fondo gris oscuro casi negro */
+            background-color: #191919; 
         }
         .gradient-text {
-            /* Gradiente actualizado: morado intenso (esquina) -> azul vibrante (centro) -> morado intenso (esquina) */
-            /* Se ajustan los porcentajes para dar más notoriedad a #8A1AFF */
             background: linear-gradient(to right, #8A1AFF 25%, #2A3DFF 50%, #8A1AFF 75%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-fill-color: transparent;
+            background-size: 300% 100%; 
+            animation: move-gradient 6s linear infinite; 
         }
-        .decorative-dot { /* Aunque no se usa, se actualiza por consistencia si se descomenta */
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: #FFFFFF; /* Punto blanco */
-            display: inline-block;
-            margin: 0 5px; /* Adjust spacing */
-        }
-        /* Hexágono decorativo */
-        .decorative-hexagon {
-            width: 10px;
-            height: 5.77px; /* width * sqrt(3)/2 / 2 for equilateral triangle height, then times 2 for hexagon */
-            background-color: #FFFFFF; /* Color del hexágono: Blanco */
-            position: relative;
-            display: inline-block;
-            margin: 2.88px 5px 0; /* Adjust vertical alignment and spacing */
-        }
-        .decorative-hexagon::before,
-        .decorative-hexagon::after {
-            content: "";
-            position: absolute;
-            width: 0;
-            border-left: 5px solid transparent;
-            border-right: 5px solid transparent;
-        }
-        .decorative-hexagon::before {
-            bottom: 100%;
-            border-bottom: 2.885px solid #FFFFFF; /* Color del borde del hexágono: Blanco */
-        }
-        .decorative-hexagon::after {
-            top: 100%;
-            width: 0;
-            border-top: 2.885px solid #FFFFFF; /* Color del borde del hexágono: Blanco */
+
+        @keyframes move-gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
     </style>
 </head>
 <body class="text-white min-h-screen flex flex-col items-center justify-center p-4">
-    <div class="text-center">
-        <h1 class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black uppercase tracking-wider gradient-text mb-4">
-            Statistics
+    
+    <div class="text-center" style="transform: scale(0.95); transform-origin: center top;">
+        <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-wider gradient-text">
+            Player
         </h1>
-
-        <div class="my-6 flex justify-center items-center">
-            <span class="decorative-hexagon"></span>
         </div>
 
-        <p class="text-sm sm:text-base md:text-lg text-gray-400 uppercase tracking-widest">
-            The system uses me, and I use the system
-        </p>
-    </div>
-
     <!--
-    Imagen de respaldo, no es parte directa de la recreación del texto
-    <img src="https://placehold.co/600x150/202020/FFFFFF?text=STATISTICS"
+    Imagen de respaldo, con dimensiones de 240x80 y estilo de escala aplicado.
+    <img src="https://placehold.co/240x80/191919/FFFFFF?text=STATISTICS"
          alt="Estadísticas - El sistema me usa, y yo uso el sistema"
-         class="mt-8 rounded-lg shadow-lg w-full max-w-2xl h-auto hidden"
-         onerror="this.onerror=null; this.src='https://placehold.co/600x150/1a1a1a/cccccc?text=Image+Not+Found'; this.alt='Imagen no encontrada';">
+         class="mt-8 rounded-lg shadow-lg w-full max-w-md h-auto hidden" 
+         style="transform: scale(0.5); transform-origin: left top;"
+         onerror="this.onerror=null; this.src='https://placehold.co/240x80/1a1a1a/cccccc?text=Image+Not+Found'; this.alt='Imagen no encontrada';">
     -->
 </body>
 </html>
