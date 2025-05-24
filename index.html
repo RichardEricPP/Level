@@ -9,33 +9,22 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #202020; /* Fondo gris oscuro casi negro */
+            background-color: #191919; /* Fondo actualizado a #191919 */
         }
         .gradient-text {
-            /* Gradiente actualizado: morado intenso (esquina) -> azul vibrante (centro) -> morado intenso (esquina) */
-            /* Se ajustan los porcentajes para dar más notoriedad a #8A1AFF */
             background: linear-gradient(to right, #8A1AFF 25%, #2A3DFF 50%, #8A1AFF 75%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-fill-color: transparent;
         }
-        .decorative-dot { /* Aunque no se usa, se actualiza por consistencia si se descomenta */
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: #FFFFFF; /* Punto blanco */
-            display: inline-block;
-            margin: 0 5px; /* Adjust spacing */
-        }
-        /* Hexágono decorativo */
         .decorative-hexagon {
             width: 10px;
-            height: 5.77px; /* width * sqrt(3)/2 / 2 for equilateral triangle height, then times 2 for hexagon */
-            background-color: #FFFFFF; /* Color del hexágono: Blanco */
+            height: 5.77px;
+            background-color: #FFFFFF;
             position: relative;
             display: inline-block;
-            margin: 2.88px 5px 0; /* Adjust vertical alignment and spacing */
+            margin: 2.88px 5px 0;
         }
         .decorative-hexagon::before,
         .decorative-hexagon::after {
@@ -47,12 +36,12 @@
         }
         .decorative-hexagon::before {
             bottom: 100%;
-            border-bottom: 2.885px solid #FFFFFF; /* Color del borde del hexágono: Blanco */
+            border-bottom: 2.885px solid #FFFFFF;
         }
         .decorative-hexagon::after {
             top: 100%;
             width: 0;
-            border-top: 2.885px solid #FFFFFF; /* Color del borde del hexágono: Blanco */
+            border-top: 2.885px solid #FFFFFF;
         }
     </style>
 </head>
@@ -71,12 +60,5 @@
         </p>
     </div>
 
-    <!--
-    Imagen de respaldo, no es parte directa de la recreación del texto
-    <img src="https://placehold.co/600x150/202020/FFFFFF?text=STATISTICS"
-         alt="Estadísticas - El sistema me usa, y yo uso el sistema"
-         class="mt-8 rounded-lg shadow-lg w-full max-w-2xl h-auto hidden"
-         onerror="this.onerror=null; this.src='https://placehold.co/600x150/1a1a1a/cccccc?text=Image+Not+Found'; this.alt='Imagen no encontrada';">
-    -->
-</body>
+    </body>
 </html>
