@@ -9,7 +9,7 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #191919; /* Fondo actualizado a #191919 */
+            background-color: #191919; 
         }
         .gradient-text {
             background: linear-gradient(to right, #8A1AFF 25%, #2A3DFF 50%, #8A1AFF 75%);
@@ -17,11 +17,10 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-fill-color: transparent;
-            background-size: 300% 100%; /* Aumentamos el tamaño del fondo para la animación */
-            animation: move-gradient 6s linear infinite; /* Nueva animación para el gradiente */
+            background-size: 300% 100%; 
+            animation: move-gradient 6s linear infinite; 
         }
 
-        /* Definición de la animación para mover el gradiente */
         @keyframes move-gradient {
             0% {
                 background-position: 0% 50%;
@@ -63,15 +62,15 @@
 </head>
 <body class="text-white min-h-screen flex flex-col items-center justify-center p-4">
     <div class="text-center">
-        <h1 class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black uppercase tracking-wider gradient-text mb-4">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-wider gradient-text mb-2">
             Statistics
         </h1>
 
-        <div class="my-6 flex justify-center items-center">
+        <div class="my-3 flex justify-center items-center">
             <span class="decorative-hexagon"></span>
         </div>
 
-        <p class="text-sm sm:text-base md:text-lg text-gray-400 uppercase tracking-widest">
+        <p class="text-[8px] sm:text-[10px] md:text-xs text-gray-400 uppercase tracking-widest">
             The system uses me, and I use the system
         </p>
     </div>
@@ -81,7 +80,7 @@
     <img src="https://placehold.co/240x80/191919/FFFFFF?text=STATISTICS"
          alt="Estadísticas - El sistema me usa, y yo uso el sistema"
          class="mt-8 rounded-lg shadow-lg w-full max-w-md h-auto hidden" 
-         style="transform: scale(0.5); transform-origin: left top;" /* Escala aplicada y origen de transformación */
+         style="transform: scale(0.5); transform-origin: left top;"
          onerror="this.onerror=null; this.src='https://placehold.co/240x80/1a1a1a/cccccc?text=Image+Not+Found'; this.alt='Imagen no encontrada';">
     -->
 </body>
