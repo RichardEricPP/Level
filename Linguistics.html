@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masterful</title>
+    <!-- Import the 'Permanent Marker' font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            /* Apply the 'Permanent Marker' font as requested, with a fallback to cursive */
+            font-family: 'Permanent Marker', cursive;
+            /* Apply the requested background color */
+            background-color: #191919;
+            /* Ensure no background image is applied */
+            background-image: none;
+        }
+        .gradient-text {
+            /* Define a linear gradient with vibrant neon blue and neon red colors */
+            background: linear-gradient(to right, #0000FF 0%, #0000FF 50%, #FF0000 50%, #FF0000 100%);
+            /* Clip the background to the text shape */
+            -webkit-background-clip: text;
+            /* Make the text transparent so the background gradient shows through */
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            /* Set the background size to 2400% (much larger) to make the gradient effect more spread out */
+            background-size: 2500% 100%; /* Made significantly larger */
+            /* Apply animation for the moving gradient across the entire word */
+            animation: move-neon-gradient 75s linear infinite; /* Increased duration for much slower animation */
+        }
+
+        /* Style for individual letters */
+        .neon-letter {
+            display: inline-block; /* Allows individual transformation and shadow */
+            /* Apply burning flame effect per letter, much slower now */
+            animation: burning-flame 5s infinite alternate; /* Increased duration for slower animation */
+            /* animation-delay will be set by JavaScript for a staggered effect */
+        }
+
+        /* Define the keyframes for the neon gradient movement animation */
+        @keyframes move-neon-gradient {
+            0% {
+                /* Start with the gradient positioned at 0%, showing the first color */
+                background-position: 0% 0%;
+            }
+            100% {
+                /* Move the gradient to -100% to reveal the second color and create a continuous loop */
+                background-position: -100% 0%;
+            }
+        }
+
+        /* Define the keyframes for the subtle burning flame effect for individual letters */
+        @keyframes burning-flame {
+            0%, 100% {
+                /* Initial and final state: very subtle, sharp glow, minimal upward shift */
+                text-shadow:
+                    0 0px 0px #0000FF, /* Blue flame base - no vertical shift */
+                    0 0px 0px #FF0000; /* Red flame base - no vertical shift */
+            }
+            15% {
+                /* Flame flickers very subtly, almost no shift */
+                text-shadow:
+                    -0.2px -0.5px 0px #0000FF, 0.2px -0.5px 0px #FF0000,
+                    -0.5px -1px 0px rgba(0, 0, 255, 0.5), 0.5px -1px 0px rgba(255, 0, 0, 0.5);
+            }
+            30% {
+                /* Flame expands and shifts, but very subtly */
+                text-shadow:
+                    0.5px -1px 0px #0000FF, -0.5px -1px 0px #FF0000,
+                    0.8px -1.5px 0px rgba(0, 0, 255, 0.4), -0.8px -1.5px 0px rgba(255, 0, 0, 0.4);
+            }
+            45% {
+                /* Flame reaches peak "height" (very minimal), wider spread, but vertical movement is very constrained */
+                text-shadow:
+                    -0.8px -2px 0px #0000FF, 0.8px -2px 0px #FF0000,
+                    -1.2px -3px 0px rgba(0, 0, 255, 0.3), 1.2px -3px 0px rgba(255, 0, 0, 0.3);
+            }
+            60% {
+                /* Flame contracts slightly and shifts down, still erratic but smooth */
+                text-shadow:
+                    0.2px -1.5px 0px #0000FF, -0.2px -1.5px 0px #FF0000,
+                    0.5px -2.5px 0px rgba(0, 0, 255, 0.5), -0.5px -2.5px 0px rgba(255, 0, 0, 0.5);
+            }
+            75% {
+                /* Another upward burst, subtle offsets */
+                text-shadow:
+                    -0.5px -1.8px 0px #0000FF, 0.5px -1.8px 0px #FF0000,
+                    -1px -2.8px 0px rgba(0, 0, 255, 0.6), 1px -2.8px 0px rgba(255, 0, 0, 0.6);
+            }
+            90% {
+                /* Rapid contraction before resetting, minimal vertical shift */
+                text-shadow:
+                    0.2px -1px 0px #0000FF, -0.2px -1px 0px #FF0000;
+            }
+        }
+    </style>
+</head>
+<body class="text-white min-h-screen flex flex-col items-center justify-center p-4">
+
+    <div class="text-center" style="transform: scale(0.95); transform-origin: center top;">
+        <h1 id="masterfulText" class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl uppercase tracking-wider gradient-text">
+            <!-- Las letras serán insertadas aquí por JavaScript -->
+        </h1>
+    </div>
+
+    <script>
+        // Ensure the script runs after the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            const h1Element = document.getElementById('masterfulText');
+            const textContent = "Linguistics"; // The word to animate
+            h1Element.textContent = ''; // Clear any existing content inside the h1
+
+            // Loop through each character of the word
+            for (let i = 0; i < textContent.length; i++) {
+                const char = textContent[i];
+                const span = document.createElement('span'); // Create a new span element for each letter
+                span.textContent = char; // Set the letter as the span's content
+                span.classList.add('neon-letter'); // Add the class for the energy effect
+                // Apply a staggered animation delay to create a wave-like effect across the word
+                span.style.animationDelay = `${i * 0.25}s`; // 250ms delay per letter for a slower wave
+                h1Element.appendChild(span); // Append the span to the h1 element
+            }
+        });
+    </script>
+
+    <!--
+    Imagen de respaldo, con dimensiones de 240x80 y estilo de escala aplicado.
+    <img src="https://placehold.co/240x80/191919/FFFFFF?text=STATISTICS"
+          alt="Estadísticas - El sistema me usa, y yo uso el sistema"
+          class="mt-8 rounded-lg shadow-lg w-full max-w-md h-auto hidden"
+          style="transform: scale(0.5); transform-origin: left top;"
+          onerror="this.onerror=null; this.src='https://placehold.co/240x80/1a1a1a/cccccc?text=Image+Not+Found'; this.alt='Imagen no encontrada';">
+    -->
+</body>
+</html>
